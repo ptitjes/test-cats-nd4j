@@ -2,8 +2,8 @@ import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
     application
-    kotlin("jvm") version "1.3.61"
-    kotlin("plugin.serialization") version "1.3.61"
+    kotlin("jvm") version "1.3.70"
+    kotlin("plugin.serialization") version "1.3.70"
 }
 
 group = "org.example"
@@ -18,11 +18,12 @@ repositories {
     mavenCentral()
 }
 
-val kotlinSerializationVersion = "0.14.0"
+val kotlinSerializationVersion = "0.20.0"
 val dl4jVersion = "1.0.0-beta6"
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("stdlib", KotlinCompilerVersion.VERSION))
+    implementation(kotlin("reflect"))
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinSerializationVersion")
 
     implementation("org.bytedeco:hdf5:1.10.5-1.5.2")

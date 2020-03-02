@@ -4,15 +4,13 @@ import java.io.File
 
 @ExperimentalUnsignedTypes
 fun loadCatVsNonCatDataSets(): Pair<DataSet, DataSet> {
-    val trainSet = loadCatVsNonCatDataSet("train").apply { printDataSetStats("Train") }
-    val testSet = loadCatVsNonCatDataSet("test").apply { printDataSetStats("Test") }
-    println()
-
+    val trainSet = loadCatVsNonCatDataSet("train")
+    val testSet = loadCatVsNonCatDataSet("test")
     checkDataSetAgainst(trainSet, "trainX.csv", "trainY.csv")
     return Pair(trainSet, testSet)
 }
 
-private fun DataSet.printDataSetStats(name: String) {
+fun DataSet.printDataSetStats(name: String) {
     println("$name data-set: #examples=${numExamples()}, #inputs=${numInputs()}, #outcomes=${numOutcomes()}")
 }
 
